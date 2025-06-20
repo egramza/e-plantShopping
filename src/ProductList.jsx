@@ -6,7 +6,7 @@ import { addItem } from './CartSlice';
 function ProductList({ onHomeClick }) {
     const [showCart, setShowCart] = useState(false);
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
-
+    const dispatch=useDispatch()
     const plantsArray = [
         {
             category: "Air Purifying Plants",
@@ -219,6 +219,7 @@ function ProductList({ onHomeClick }) {
 
     const handleAddToCart = (product) => {
         dispatch(addItem(product));
+        console.log(product)
       
         setAddedToCart((prevState) => ({ // Update the local state to reflect that the product has been added
           ...prevState, // Spread the previous state to retain existing entries
@@ -313,8 +314,9 @@ function ProductList({ onHomeClick }) {
                                     <button
                                         className="product-button"
                                         onClick={() => handleAddToCart(plant)}
+                                        disabled={addedToCart[plant.name]}
                                     >
-                                        Add to Cart
+                                        {addedToCart[plant.name] ? 'Added' : 'Add to Cart'}
                                     </button>
                                 </div>
                                 ))}
