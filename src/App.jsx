@@ -31,9 +31,9 @@ function App() {
           </button>
          </div>
           <div className="aboutus_container">
-          <AboutUs/>
+          <AboutUs />
           </div>
-          </div>
+        </div>
 
       </div>
       <div className={`product-list-container ${showProductList ? 'visible' : ''}`}>
@@ -44,6 +44,3 @@ function App() {
 }
 
 export default App;
-
-
-
